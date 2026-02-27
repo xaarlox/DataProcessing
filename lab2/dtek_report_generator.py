@@ -18,7 +18,7 @@ def extract_and_clean_pdf(pdf_path):
             if page_text:
                 text += page_text + " "
 
-    text = re.sub(r'[•·]\s*', '', text)  # Видалення маркерів списку (Проблема: • ДТЕК)
+    text = re.sub(r'[\u2022\u00B7\uF0D8\uF0A7]\s*', '', text)  # Видалення маркерів списку (Проблема: • ДТЕК)
 
     # Проблема: транс ‑ формації
     text = re.sub(r'([а-яА-ЯіІїЇєЄґҐ]+)(?:\s+[-‑]\s*|\s*[-‑]\s+)([а-яА-ЯіІїЇєЄґҐ]+)', r'\1\2', text)
@@ -80,7 +80,7 @@ def main():
             full_generated_report += paragraph + "\n"
             formatted_paragraph = textwrap.fill(paragraph.strip(), width=100)
             print(formatted_paragraph)
-            print()  # "\n"
+            print()
 
     evaluate_generation_quality(dataset_text, full_generated_report)
 
