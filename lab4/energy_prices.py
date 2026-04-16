@@ -71,7 +71,6 @@ for i in range(5):
 
 table.add_row(["...", "...", "..."])
 
-# Виводимо останні 5 точок
 for i in range(len(t_dynamic) - 5, len(t_dynamic)):
     table.add_row([f"{t_dynamic[i]:.2f}", f"{P_dynamic[i]:.2f}", f"{P_trend[i]:.2f}"])
 
